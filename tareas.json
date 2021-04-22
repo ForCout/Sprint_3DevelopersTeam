@@ -1,10 +1,32 @@
 [
   {
-    "idTarea": "1",
-    "Tarea": "1",
-    "Estado": "1",
-    "Hora_inicio": "Thu Apr 22 2021 15:24:44 GMT+0200 (hora de verano de Europa central)",
-    "Hora_finalizacion": "1",
-    "Usuario": "1"
-  }
+    "idTarea": "9",
+    "Tarea": "9",
+    "Estado": "9",
+    "Hora_inicio": "99",
+    "Hora_finalizacion": "9",
+    "Usuario": "9"
+  },
+  [
+    {
+      "idTarea": "6",
+      "Tarea": "6",
+      "Estado": "6",
+      "Hora_inicio": "6",
+      "Hora_finalizacion": "6",
+      "Usuario": "6"
+    },
+    [
+      [
+        {
+          "idTarea": "2",
+          "Tarea": "2",
+          "Estado": "2",
+          "Hora_inicio": "Thu Apr 22 2021 17:18:40 GMT+0200 (hora de verano de Europa central)",
+          "Hora_finalizacion": "2",
+          "Usuario": "2"
+        }
+      ]
+    ]
+  ]
 ]

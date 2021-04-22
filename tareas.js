@@ -5,7 +5,7 @@ let listaTareas = JSON.parse(tareas);
 const prompt = require("prompt");
 let json = require("./tareas.json");
 let menu = require("./app.js");
-let datos = []
+let datos = [];
 const preguntas = () => {
   const p = [
     {
@@ -40,28 +40,25 @@ const preguntas = () => {
       message: "Introduzca usuario",
     },
   ];
-  
-  
+
   return inquirer.prompt(p);
 };
-async function crear()  {
-  
+async function crear() {
   crearTarea(await preguntas());
-};
+}
 
 const crearTarea = (file) => {
-  datos.push(file)
-  console.log(file)
-  fs.writeFileSync('tareas.json', JSON.stringify(datos,null,2), { flag: "w+" })
-  
-}
+  datos.push(file);
+  datos.push(listaTareas);
+  fs.writeFileSync("tareas.json", JSON.stringify(datos, null, 2), {
+    flag: "w+",
+  });
+};
 
 const listarTareas = () => {
   listaTareas.forEach(function (tarea) {
-    console.log(tarea)
-    
+    console.log(tarea);
   });
- 
 };
 
 const listarById = (id) => {
@@ -77,6 +74,4 @@ const eliminar = (id) => {
   console.log(`La tarea con id: ${id} ha sido eliminada`);
 };
 
-
-
-module.exports ={preguntas,listarById,eliminar,crear,listarTareas}
+module.exports = { preguntas, listarById, eliminar, crear, listarTareas };

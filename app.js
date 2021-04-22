@@ -21,7 +21,7 @@ function loopMenu() {
       .then(({ opcion }) => {
         if (opcion === "crear") {
           t.crear();
-          menu();
+          //menu();
 
         } else if (opcion === "Borrar") {
           inquirer.prompt(
