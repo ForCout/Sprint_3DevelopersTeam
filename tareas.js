@@ -71,8 +71,8 @@ const listarById = (id) => {
 };
 
 const eliminar = (id) => {
-  listaTareas.forEach(function (tarea) {
-    if (tarea.idTarea == id) listaTareas.splice(tarea, 1);
+  listaTareas.forEach(function (tarea, index, arr) {
+    if (tarea.idTarea[index] == id) listaTareas.splice(index, index);
   });
   console.log(`La tarea con id: ${id} ha sido eliminada`);
 };
