@@ -21,7 +21,17 @@ inquirer
       t.crear();
       
     } else if (opcion === "Borrar") {
-      t.eliminar();
+      inquirer.prompt(
+        {
+          name: "id",
+          message: "Entra el id?",
+          type: "input"
+        })
+        .then(({ id }) => {
+          t.eliminar(id);
+
+         })
+      
     } else if (opcion === "Listar todas") {
       t.listarTareas();
     } else if (opcion === "Lista por Id") {

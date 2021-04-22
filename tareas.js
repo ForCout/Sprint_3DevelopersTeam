@@ -4,7 +4,7 @@ let tareas = fs.readFileSync("tareas.json");
 let listaTareas = JSON.parse(tareas);
 const prompt = require("prompt");
 let json = require("./tareas.json");
-let menu = require("./prueba.js");
+let menu = require("./app.js");
 let datos = []
 const preguntas = () => {
   const p = [
@@ -51,13 +51,14 @@ async function crear()  {
 
 const crearTarea = (file) => {
   datos.push(file)
-  fs.writeFileSync('tareas.json', JSON.stringify(datos,null,2), { flag: "a" })
+  console.log(file)
+  fs.writeFileSync('tareas.json', JSON.stringify(datos,null,2), { flag: "w+" })
   
 }
 
 const listarTareas = () => {
-  listaTareas.forEach(function (tareas) {
-    //fs.writeFileSync('tareas.json', JSON.stringify(datos,null,2), { flag: "w+" })
+  listaTareas.forEach(function (tarea) {
+    console.log(tarea)
     
   });
  
@@ -76,31 +77,6 @@ const eliminar = (id) => {
   console.log(`La tarea con id: ${id} ha sido eliminada`);
 };
 
-// const CrudTareas = (function () {
-//   return {
 
-//     listarTareas: () => {
-//       listaTareas.forEach(function (tarea) {
-//         console.log(tarea);
-//       });
-//     },
 
-//     listarById: (id) => {
-//       listaTareas.forEach(function (tarea) {
-//         if (tarea.idTarea == id) console.log(tarea);
-//       });
-//     },
-//     eliminar: (id) => {
-//       listaTareas.forEach(function (tarea) {
-//         if (tarea.idTarea == id) listaTareas.splice(tarea, 1);
-//       });
-//       console.log(`La tarea con id: ${id} ha sido eliminada`);
-//     },
-
-//   };
-// })();
-
-//module.exports.CrudTareas =  CrudTareas ;
-module.exports.preguntas = preguntas;
-module.exports.listarTareas = listarTareas;
-module.exports.crear = crear;
+module.exports ={preguntas,listarById,eliminar,crear,listarTareas}

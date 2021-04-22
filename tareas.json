@@ -1,7 +1,10 @@
-{ "idTarea":1,
-    "Tarea": "Revisar albaranes",
-    "Estado": "Acabada",
-    "Hora_inicio": "2021-04-18T12:45:00Z",
-    "Hora_finalizacion": "2021-04-19T12:23:00Z",
-    "Usuario": "usuario_1"
-}
+[
+  {
+    "idTarea": "1",
+    "Tarea": "1",
+    "Estado": "1",
+    "Hora_inicio": "Thu Apr 22 2021 15:24:44 GMT+0200 (hora de verano de Europa central)",
+    "Hora_finalizacion": "1",
+    "Usuario": "1"
+  }
+]
