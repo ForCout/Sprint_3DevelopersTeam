@@ -43,7 +43,7 @@ function loopMenu() {
               type: "input",
             })
             .then(({ id }) => {
-              console.log(id);
+              //console.log(id);
               t.listarById(id);
               menu();
             });
@@ -51,17 +51,42 @@ function loopMenu() {
           inquirer
             .prompt({
               name: "id",
-              message: "Entra el id?",
+              message: "Entre el id de la tarea a modificar?",
               type: "input",
             })
             .then(({ id }) => {
-              console.log(id);
               t.listarById(id);
-              menu();
-            });
+              inquirer
+                .prompt({
+                  name: "cambio",
+                  message: "Que desea modificar ?",
+                  type: "rawlist",
+                  choices: ["Estado", "Fecha fin"],
+                })
+
+                .then(({ cambio }) => {
+                  if (cambio === "Estado") {
+                    inquirer.prompt({
+                      name: "cambio",
+                      message: "Cambie el estado",
+                      type: "input",
+                    });
+                  } else if (cambio === "Fecha fin"){
+                    inquirer.prompt({
+                      name: "fecha",
+                      message: "Cambie Fecha finalizacion",
+                      type: "input",
+                    })
+                  }
+                });
+            })
         }
-      });
-  };
+        //   // t.eliminar(id);
+        //   // t.crear()
+        //   //.then(menu);
+        // });
+      })
+    };
   menu();
 }
 
