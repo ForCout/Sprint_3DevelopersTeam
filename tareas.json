@@ -6,5 +6,21 @@
     "Hora_inicio": "f",
     "Hora_finalizacion": "f",
     "Usuario": "f"
+  },
+  {
+    "idTarea": "2",
+    "Tarea": "Pagos",
+    "Estado": "Pendiente",
+    "Hora_inicio": "Fri Apr 23 2021 09:34:09 GMT+0200 (hora de verano de Europa central)",
+    "Hora_finalizacion": "",
+    "Usuario": "2"
+  },
+  {
+    "idTarea": "3",
+    "Tarea": "r",
+    "Estado": "f",
+    "Hora_inicio": "f",
+    "Hora_finalizacion": "f",
+    "Usuario": "g"
   }
 ]

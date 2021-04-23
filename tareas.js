@@ -81,7 +81,7 @@ const eliminar = (id) => {
 };
 const actualizar = (id) => {
   if (tarea.idTarea === id) {
-    
+    lystarById(id);
     eliminar(id);
     crear();
   }

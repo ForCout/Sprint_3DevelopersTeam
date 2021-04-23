@@ -1,8 +1,8 @@
 const inquirer = require("inquirer");
 let t = require("./tareas.js");
 
-
-const menu = () => {
+function loopMenu() {
+  const menu = () => {
     inquirer
       .prompt({
         type: "rawlist",
@@ -19,11 +19,8 @@ const menu = () => {
       })
 
       .then(({ opcion }) => {
-
-        if (opcion === "crear") {
-          t.crear().then (menu);
-
-
+        if (opcion === "Crear") {
+          t.crear().then(menu);
         } else if (opcion === "Borrar") {
           inquirer
             .prompt({
@@ -65,7 +62,7 @@ const menu = () => {
         }
       });
   };
-menu();
+  menu();
+}
 
-
-
+loopMenu();
