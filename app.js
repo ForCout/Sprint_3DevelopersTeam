@@ -56,38 +56,31 @@ function loopMenu() {
             })
             .then(({ id }) => {
               t.listarById(id);
+            
               inquirer
-                .prompt({
-                  name: "cambio",
-                  message: "Que desea modificar ?",
-                  type: "rawlist",
-                  choices: ["Estado", "Fecha fin"],
-                })
-
-                .then(({ cambio }) => {
-                  if (cambio === "Estado") {
-                    inquirer.prompt({
-                      name: "cambio",
-                      message: "Cambie el estado",
-                      type: "input",
-                    });
-                  } else if (cambio === "Fecha fin"){
-                    inquirer.prompt({
-                      name: "fecha",
-                      message: "Cambie Fecha finalizacion",
-                      type: "input",
-                    })
-                  }
-                });
+                .prompt([{
+                  name: "estado",
+                  message: "Modifique el estado",
+                  type: "input",
+                 
+                }, {
+                  name: "fecha",
+                  message: "Modifique la fecha",
+                  type: "input"
+                }
+                ])
             })
         }
-        //   // t.eliminar(id);
-        //   // t.crear()
-        //   //.then(menu);
-        // });
-      })
-    };
-  menu();
-}
-
+            
+      });
+    //   // t.eliminar(id);
+    //   // t.crear()
+    //   //.then(menu);
+    // });
+      
+  }
+    menu();
+  
+};
 loopMenu();
+

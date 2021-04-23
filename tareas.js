@@ -81,5 +81,9 @@ const eliminar = (id) => {
   if (file == false) console.log("Este archivo no se encuentra");
 };
 
+const actualizar = (id, estado, fecha) => {
+  
+}
+
 
 module.exports = { preguntas, listarById, eliminar, crear, listarTareas};
