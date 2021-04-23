@@ -19,9 +19,11 @@ const menu = () => {
       })
 
       .then(({ opcion }) => {
-        if (opcion === "Crear") {
-          t.crear();
-          //menu();
+
+        if (opcion === "crear") {
+          t.crear().then (menu);
+
+
         } else if (opcion === "Borrar") {
           inquirer
             .prompt({
