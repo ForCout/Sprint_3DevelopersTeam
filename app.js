@@ -1,64 +1,69 @@
 const inquirer = require("inquirer");
 let t = require("./tareas.js");
 
-function loopMenu() {
-  const menu = () => {
+
+const menu = () => {
     inquirer
       .prompt({
         type: "rawlist",
         name: "opcion",
         message: "Opcion elegida :",
         choices: [
-          "crear",
-          "actualizar",
+          "Crear",
+          "Actualizar",
           "Borrar",
           "Listar todas",
           "Lista por Id",
-          "salir",
+          "Salir",
         ],
       })
 
       .then(({ opcion }) => {
-        if (opcion === "crear") {
+        if (opcion === "Crear") {
           t.crear();
           //menu();
-
         } else if (opcion === "Borrar") {
-          inquirer.prompt(
-            {
+          inquirer
+            .prompt({
               name: "id",
               message: "Entra el id?",
-              type: "input"
+              type: "input",
             })
             .then(({ id }) => {
               t.eliminar(id);
               menu();
-
-            })
-
+            });
         } else if (opcion === "Listar todas") {
           t.listarTareas();
           menu();
         } else if (opcion === "Lista por Id") {
-          inquirer.prompt(
-            {
+          inquirer
+            .prompt({
               name: "id",
               message: "Entra el id?",
-              type: "input"
+              type: "input",
             })
             .then(({ id }) => {
-              console.log(id)
+              console.log(id);
               t.listarById(id);
               menu();
-
+            });
+        } else if (opcion === "Actualizar") {
+          inquirer
+            .prompt({
+              name: "id",
+              message: "Entra el id?",
+              type: "input",
             })
-
+            .then(({ id }) => {
+              console.log(id);
+              t.listarById(id);
+              menu();
+            });
         }
-      })
-  }
-  menu();
+      });
+  };
+menu();
 
-}
 
-loopMenu();
 

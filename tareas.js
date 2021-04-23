@@ -1,17 +1,14 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-let tareas = fs.readFileSync("tareas.json");
-let listaTareas = JSON.parse(tareas);
-const prompt = require("prompt");
-let json = require("./tareas.json");
-let menu = require("./app.js");
-let datos = [];
+const tareas = fs.readFileSync("tareas.json");
+const listaTareas = JSON.parse(tareas);
+//const prompt = require("prompt");
+
 const preguntas = () => {
   const p = [
     {
       type: "input",
       name: "idTarea",
-
       message: "Introduzca id de la tarea",
     },
     {
@@ -26,8 +23,7 @@ const preguntas = () => {
     },
     {
       name: "Hora_inicio",
-
-      default: Date(),
+     default: Date(),
     },
     {
       name: "Hora_finalizacion",
@@ -48,9 +44,8 @@ async function crear() {
 }
 
 const crearTarea = (file) => {
-  datos.push(file);
-  datos.push(listaTareas);
-  fs.writeFileSync("tareas.json", JSON.stringify(datos, null, 2), {
+  listaTareas.push(file);
+  fs.writeFileSync("tareas.json", JSON.stringify(listaTareas, null, 2), {
     flag: "w+",
   });
 };
@@ -62,16 +57,35 @@ const listarTareas = () => {
 };
 
 const listarById = (id) => {
+  let file = false;
   listaTareas.forEach(function (tarea) {
-    if (tarea.idTarea == id) console.log(tarea);
+    if (tarea.idTarea == id) {
+      console.log(tarea);
+      let file = true;
+    }
   });
+  if (file == false) console.log("Este archivo no existe");
 };
 
 const eliminar = (id) => {
-  listaTareas.forEach(function (tarea, index, arr) {
-    if (tarea.idTarea[index] == id) listaTareas.splice(index, index);
+  let file = false;
+  listaTareas.forEach(function (tarea) {
+    if (tarea.idTarea === id) {
+      listaTareas.splice(tarea, 1);
+      fs.writeFileSync("tareas.json", JSON.stringify(listaTareas, null, 2));
+      console.log(`La tarea con id: ${id} ha sido eliminada`);
+      file = true;
+    }
   });
-  console.log(`La tarea con id: ${id} ha sido eliminada`);
+  if (file == false) console.log("Este archivo no se encuentra");
 };
+const actualizar = (id) => {
+  if (tarea.idTarea === id) {
+    
+    eliminar(id);
+    crear();
+  }
+  
+}
 
-module.exports = { preguntas, listarById, eliminar, crear, listarTareas };
+module.exports = { preguntas, listarById, eliminar, crear, listarTareas,actualizar };
