@@ -1,18 +1,20 @@
 [
+  
   {
-    "idTarea": "1",
-    "Tarea": "f",
-    "Estado": "f",
-    "Hora_inicio": "f",
-    "Hora_finalizacion": "f",
-    "Usuario": "f"
+    "idTarea": "12",
+    "Tarea": "Facturas",
+    "Estado": "acabada",
+    "Hora_inicio": "Sun Apr 25 2021 00:47:13 GMT+0200 (hora de verano de Europa central)",
+    "Hora_finalizacion": "Sun Apr 25 2021 00:47:26 GMT+0200 (hora de verano de Europa central)",
+    "Usuario": "12"
   },
+  
   {
-    "idTarea": "2",
-    "Tarea": "m",
-    "Estado": "m",
-    "Hora_inicio": "m",
-    "Hora_finalizacion": "m",
-    "Usuario": "m"
+    "idTarea": "11",
+    "Tarea": "Cobros",
+    "Estado": "Acabada",
+    "Hora_inicio": "Sun Apr 25 2021 00:50:18 GMT+0200 (hora de verano de Europa central)",
+    "Hora_finalizacion": "Sun Apr 25 2021 00:50:30 GMT+0200 (hora de verano de Europa central)",
+    "Usuario": "23"
   }
 ]

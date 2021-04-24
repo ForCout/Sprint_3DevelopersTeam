@@ -43,44 +43,39 @@ function loopMenu() {
               type: "input",
             })
             .then(({ id }) => {
-              //console.log(id);
               t.listarById(id);
               menu();
             });
         } else if (opcion === "Actualizar") {
           inquirer
-            .prompt({
-              name: "id",
-              message: "Entre el id de la tarea a modificar?",
-              type: "input",
-            })
-            .then(({ id }) => {
+            .prompt([
+              {
+                name: "id",
+                message: "Entre el id de la tarea a modificar?",
+                type: "input",
+              },
+              {
+                name: "estado",
+                message: "Modifique el estado",
+                type: "input",
+              },
+              {
+                name: "horaFin",
+                message: "Modifique la hora de finalizacion",
+                type: "input",
+              },
+            ])
+            .then(({ id, estado, horaFin }) => {
+              console.log("Esta es la tarea antes de ser  modificada");
               t.listarById(id);
-            
-              inquirer
-                .prompt([{
-                  name: "estado",
-                  message: "Modifique el estado",
-                  type: "input",
-                 
-                }, {
-                  name: "fecha",
-                  message: "Modifique la fecha",
-                  type: "input"
-                }
-                ])
-            })
+              t.actualizar(id, estado, horaFin);
+              console.log("Esta es la tarea despues de ser modificada");
+              t.listarById(id);
+              menu();
+            });
         }
-            
       });
-    //   // t.eliminar(id);
-    //   // t.crear()
-    //   //.then(menu);
-    // });
-      
-  }
-    menu();
-  
-};
+  };
+  menu();
+}
 loopMenu();
-
